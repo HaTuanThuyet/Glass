@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+.imgmodel{
+  background-position: center;
+  background-size: cover;
+  
+  height: 936px;
+  /* width: 100%; */
+  position: relative;
+  
+ 
+}
+
+.child {
+  position: absolute;
+  left: 170px;
+  top: 200px;
+}
+
+.imgchild {
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  border-color: darkblue;
+}
+
+
+
+
