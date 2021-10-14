@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 
 export default class Glass extends Component {
     state = {
-        imgCar: "./Img/v1.png"
+        img: "./Img/v1.png"
     }
     renderImg = (color) => {
         // Gán Giá Trị Mới Cho State,render Lại UI
         this.setState({
-            imgCar: `./Img/v${color}.png`
+            img: `./Img/v${color}.png`
         })
     }
     render() {
@@ -17,7 +17,7 @@ export default class Glass extends Component {
                     <div className="row">
                         <div className="col-6">
                             <img src="./img/model.jpg" alt="" className="img-fluid my-5" style={{marginTop:"100px"}}/>
-                            <img src={this.state.imgCar} alt="" className="img-fluid child" style={{ height: "80px" }} />
+                            <img src={this.state.img} alt="" className="img-fluid child" style={{ height: "80px" }} />
                         </div>
                     
 
