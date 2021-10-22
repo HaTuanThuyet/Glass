@@ -1,121 +1,83 @@
 import React, { Component } from 'react'
+import dataGlasses from "./data/dataGlasses.json"
+import "./glassesImage/background.jpg"
+import "./glassesImage/model.jpg"
+
+import "./Glass.css"
+
 
 export default class Glass extends Component {
+
+
     state = {
-        img: "./Img/v1.png"
+        glassesCurrent: {
+            "id": 2,
+            "price": 50,
+            "name": "GUCCI G8759H",
+            "url" :"./glassesImage/v2.png",
+            "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+           
+          
+        }
+        
     }
-    renderImg = (color) => {
-        // Gán Giá Trị Mới Cho State,render Lại UI
-        this.setState({
-            img: `./Img/v${color}.png`
+    renderList = () => {
+        return dataGlasses.map((glassesItem, index) => {
+            return <img onClick={()=>{ this.changeGlasses(glassesItem) }} className="ml-3 p-3 border border-width-1" style={{ width: '110px', cursor: 'pointer' }} key={index} src={glassesItem.url} />
         })
     }
+
+    changeGlasses = (newGlasses) => {
+        this.setState({
+            glassesCurrent:newGlasses
+        })
+    }
+
+
+    
+
+   
+
     render() {
+        
         return (
-            <div className="imgmodel opa" style={{ backgroundImage: "url(./img/background.jpg)" }} >
-                <div className="container">
-                    <div className="row">
-                        <div className="col-6">
-                            <img src="./img/model.jpg" alt="" className="img-fluid my-5" style={{marginTop:"100px"}}/>
-                            <img src={this.state.img} alt="" className="img-fluid child" style={{ height: "80px" }} />
-                        </div>
-                    
+            <div className="bg-glass">
+               
 
+                <div className="bg">
+                    <h3 className="text-center text-light p-5 bg-rgb">GLASSES </h3>
+                    <div className="container">
+                        <div className="row mt-5 text-center">
+                            <div className="col-6">
+                                <div className="position-relative">
+                                    <img className="position-absolute bg-model styleGlasses " style={{ width: '250px' }}  />
+                                    <img  className="position-relative glass" src={this.state.glassesCurrent.url} />
+                                    <div  className="position-relative infoGlasses ">
+                                        <span  className="font-weight-bold span1">{this.state.glassesCurrent.name}</span> <br />
+                                        <span className="span2">{this.state.glassesCurrent.desc}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <img className="bg-model"  />
+
+                            </div>
+                        </div>
                     </div>
-                  
-                    <div className="row mx-5 bodyChild ">
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g1.jpg" onClick={
-                                    () => {
-                                        this.renderImg("1")
-                                    }
-                                }></img>
-                            </div>
-
-
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g2.jpg" onClick={
-                                    () => {
-                                        this.renderImg("2")
-                                    }
-                                }></img>
-                            </div>
-
-
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g3.jpg" onClick={
-                                    () => {
-                                        this.renderImg("3")
-                                    }
-                                }></img>
-                            </div>
-
-
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g4.jpg" onClick={
-                                    () => {
-                                        this.renderImg("4")
-                                    }
-                                }></img>
-                            </div>
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g5.jpg" onClick={
-                                    () => {
-                                        this.renderImg("5")
-                                    }
-                                }></img>
-                            </div>
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g6.jpg" onClick={
-                                    () => {
-                                        this.renderImg("6")
-                                    }
-                                }></img>
-                            </div>
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g7.jpg" onClick={
-                                    () => {
-                                        this.renderImg("7")
-                                    }
-                                }></img>
-                            </div>
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g8.jpg" onClick={
-                                    () => {
-                                        this.renderImg("8")
-                                    }
-                                }></img>
-                            </div>
-                            <div className="col-2">
-                                <img className="imgchild" src="./img/g9.jpg" onClick={
-                                    () => {
-                                        this.renderImg("9")
-                                    }
-                                }></img>
-                            </div>
-
-
-
-
-
-
-                        </div>
-
-                  
-
-
-
-
-
-
-
+                    <div className="bg-light container text-center mt-5 d-flex justify-content-center p-5">
+                        {this.renderList()}
+                    </div>
+                 
                 </div>
-            </div>
-
-
-
-
-
+            </div >
         )
+
+       
+        
+        
+
+      
+
+
     }
 }

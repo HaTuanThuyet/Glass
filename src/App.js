@@ -6,7 +6,7 @@ import Glass from './Component/Glass';
 function App() {
   return (
     <div className="App">
-     <Glass/>
+   <Glass/>
     </div>
   );
 }
